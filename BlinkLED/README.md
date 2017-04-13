@@ -1,5 +1,4 @@
-Run the following command to start the debugging tool:
-    $ openocd -f /usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/local/Cellar/open-ocd/0.10.0/share/openocd/scripts/target/stm32f1x.cfg
+Run the following commands to run the application:
 
-References:
-1. https://www.bartslinger.com/cx-10-quadcopter/debugging-stm32-from-qtcreator/
+$ make //To build the program
+$ make load // To load the binaries into stm32
