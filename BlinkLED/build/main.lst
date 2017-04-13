@@ -1,0 +1,198 @@
+ARM GAS  /tmp/ccaQvBub.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.delay1s,"ax",%progbits
+  19              		.align	2
+  20              		.global	delay1s
+  21              		.thumb
+  22              		.thumb_func
+  24              	delay1s:
+  25              	.LFB0:
+  26              		.file 1 "Src/main.c"
+   1:Src/main.c    **** 
+   2:Src/main.c    **** #include"ourHal.h"
+   3:Src/main.c    **** 
+   4:Src/main.c    **** /*
+   5:Src/main.c    ****   Based on the clock frequency = 72MHz
+   6:Src/main.c    **** */
+   7:Src/main.c    **** void delay1s(){
+  27              		.loc 1 7 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 16
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+  42              	.LBB2:
+   8:Src/main.c    **** 	for(int i=0 ; i <720000 ; i ++);
+  43              		.loc 1 8 0
+  44 0006 0023     		movs	r3, #0
+  45 0008 7B60     		str	r3, [r7, #4]
+  46 000a 02E0     		b	.L2
+  47              	.L3:
+  48              		.loc 1 8 0 is_stmt 0 discriminator 3
+  49 000c 7B68     		ldr	r3, [r7, #4]
+  50 000e 0133     		adds	r3, r3, #1
+ARM GAS  /tmp/ccaQvBub.s 			page 2
+
+
+  51 0010 7B60     		str	r3, [r7, #4]
+  52              	.L2:
+  53              		.loc 1 8 0 discriminator 1
+  54 0012 7B68     		ldr	r3, [r7, #4]
+  55 0014 034A     		ldr	r2, .L4
+  56 0016 9342     		cmp	r3, r2
+  57 0018 F8DD     		ble	.L3
+  58              	.LBE2:
+   9:Src/main.c    **** }
+  59              		.loc 1 9 0 is_stmt 1
+  60 001a 0C37     		adds	r7, r7, #12
+  61              	.LCFI3:
+  62              		.cfi_def_cfa_offset 4
+  63 001c BD46     		mov	sp, r7
+  64              	.LCFI4:
+  65              		.cfi_def_cfa_register 13
+  66              		@ sp needed
+  67 001e 5DF8047B 		ldr	r7, [sp], #4
+  68              	.LCFI5:
+  69              		.cfi_restore 7
+  70              		.cfi_def_cfa_offset 0
+  71 0022 7047     		bx	lr
+  72              	.L5:
+  73              		.align	2
+  74              	.L4:
+  75 0024 7FFC0A00 		.word	719999
+  76              		.cfi_endproc
+  77              	.LFE0:
+  79              		.section	.text.main,"ax",%progbits
+  80              		.align	2
+  81              		.global	main
+  82              		.thumb
+  83              		.thumb_func
+  85              	main:
+  86              	.LFB1:
+  10:Src/main.c    **** 
+  11:Src/main.c    **** int main(void)
+  12:Src/main.c    **** {
+  87              		.loc 1 12 0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 16
+  90              		@ frame_needed = 1, uses_anonymous_args = 0
+  91 0000 80B5     		push	{r7, lr}
+  92              	.LCFI6:
+  93              		.cfi_def_cfa_offset 8
+  94              		.cfi_offset 7, -8
+  95              		.cfi_offset 14, -4
+  96 0002 84B0     		sub	sp, sp, #16
+  97              	.LCFI7:
+  98              		.cfi_def_cfa_offset 24
+  99 0004 00AF     		add	r7, sp, #0
+ 100              	.LCFI8:
+ 101              		.cfi_def_cfa_register 7
+ 102              	.L7:
+ 103              	.LBB3:
+  13:Src/main.c    ****   while (1)
+  14:Src/main.c    ****   {
+ARM GAS  /tmp/ccaQvBub.s 			page 3
+
+
+  15:Src/main.c    **** 	int PIN = 13;
+ 104              		.loc 1 15 0 discriminator 1
+ 105 0006 0D23     		movs	r3, #13
+ 106 0008 FB60     		str	r3, [r7, #12]
+  16:Src/main.c    **** 	uint32_t value1 = 0xFFFF;
+ 107              		.loc 1 16 0 discriminator 1
+ 108 000a 4FF6FF73 		movw	r3, #65535
+ 109 000e BB60     		str	r3, [r7, #8]
+  17:Src/main.c    **** 	uint32_t value2 = 0x0000;
+ 110              		.loc 1 17 0 discriminator 1
+ 111 0010 0023     		movs	r3, #0
+ 112 0012 7B60     		str	r3, [r7, #4]
+  18:Src/main.c    **** 
+  19:Src/main.c    ****   	// Teste 1
+  20:Src/main.c    **** 	/*
+  21:Src/main.c    **** 	setPin( (GPIO_TypeDef *) GPIOC_BASE , PIN);
+  22:Src/main.c    **** 	delay1s();
+  23:Src/main.c    **** 	clearPin( (GPIO_TypeDef *) GPIOC_BASE , PIN);
+  24:Src/main.c    **** 	delay1s();
+  25:Src/main.c    **** 	setPin( (GPIO_TypeDef *) GPIOC_BASE , PIN);
+  26:Src/main.c    **** 	delay1s();
+  27:Src/main.c    **** 	clearPin( (GPIO_TypeDef *) GPIOC_BASE , PIN); 
+  28:Src/main.c    **** 	*/
+  29:Src/main.c    **** 	
+  30:Src/main.c    **** 	// Teste 2
+  31:Src/main.c    **** 	/*
+  32:Src/main.c    **** 	write( (GPIO_TypeDef *) GPIOC_BASE , value1);
+  33:Src/main.c    **** 	delay1s();
+  34:Src/main.c    **** 	write( (GPIO_TypeDef *) GPIOC_BASE , value2);
+  35:Src/main.c    **** 	delay1s(); 
+  36:Src/main.c    **** 	*/
+  37:Src/main.c    **** 
+  38:Src/main.c    **** 	// Teste 3
+  39:Src/main.c    **** 	togglePin((GPIO_TypeDef *) GPIOC_BASE, PIN);
+ 113              		.loc 1 39 0 discriminator 1
+ 114 0014 0348     		ldr	r0, .L8
+ 115 0016 F968     		ldr	r1, [r7, #12]
+ 116 0018 FFF7FEFF 		bl	togglePin
+  40:Src/main.c    **** 	delay1s();
+ 117              		.loc 1 40 0 discriminator 1
+ 118 001c FFF7FEFF 		bl	delay1s
+ 119              	.LBE3:
+  41:Src/main.c    **** 
+  42:Src/main.c    ****   }
+ 120              		.loc 1 42 0 discriminator 1
+ 121 0020 F1E7     		b	.L7
+ 122              	.L9:
+ 123 0022 00BF     		.align	2
+ 124              	.L8:
+ 125 0024 00100140 		.word	1073811456
+ 126              		.cfi_endproc
+ 127              	.LFE1:
+ 129              		.text
+ 130              	.Letext0:
+ 131              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 132              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 133              		.file 4 "Inc/ioMapping.h"
+ARM GAS  /tmp/ccaQvBub.s 			page 4
+
+
+ARM GAS  /tmp/ccaQvBub.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccaQvBub.s:19     .text.delay1s:0000000000000000 $t
+     /tmp/ccaQvBub.s:24     .text.delay1s:0000000000000000 delay1s
+     /tmp/ccaQvBub.s:75     .text.delay1s:0000000000000024 $d
+     /tmp/ccaQvBub.s:80     .text.main:0000000000000000 $t
+     /tmp/ccaQvBub.s:85     .text.main:0000000000000000 main
+     /tmp/ccaQvBub.s:125    .text.main:0000000000000024 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+togglePin
